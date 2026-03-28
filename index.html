@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Táxi do Zeca – Santo Ângelo e Região</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111010;
+  --offwhite:#f8f6f1;
+  --yellow:#f5c518;
+  --yellow-dark:#c9970a;
+  --yellow-pale:#fdf4cc;
+  --gray:#7a7870;
+  --gray-light:#e9e7e0;
+  --text:#1a1918;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(248,246,241,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--gray-light);
+}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;color:var(--black)}
+.logo span{color:var(--yellow-dark)}
+.nav-pill{
+  display:flex;align-items:center;gap:0.5rem;
+  background:var(--yellow);color:var(--black);
+  font-size:0.82rem;font-weight:600;letter-spacing:0.02em;
+  padding:0.55rem 1.2rem;border-radius:100px;
+  text-decoration:none;transition:background 0.18s,transform 0.15s;
+}
+.nav-pill:hover{background:var(--yellow-dark);color:#fff;transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:90vh;align-items:center;
+  padding:5rem 3rem 5rem 4rem;gap:3rem;
+  max-width:1280px;margin:0 auto;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--yellow-pale);border:1px solid #e8d88a;
+  border-radius:100px;padding:0.35rem 0.9rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--yellow-dark);
+  margin-bottom:1.8rem;
+}
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,5.5vw,5rem);
+  line-height:1.04;letter-spacing:-0.04em;
+  margin-bottom:1.6rem;color:var(--black);
+}
+h1 em{font-style:italic;color:var(--yellow-dark);display:block}
+.hero-sub{
+  font-size:1.05rem;color:var(--gray);line-height:1.75;
+  max-width:440px;margin-bottom:2.8rem;font-weight:300;
+}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-a{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--black);color:#fff;
+  font-size:0.95rem;font-weight:600;
+  padding:1rem 2.2rem;border-radius:100px;
+  text-decoration:none;transition:background 0.18s,transform 0.15s;
+  box-shadow:0 8px 28px rgba(17,16,16,0.2);
+}
+.btn-a:hover{background:#2a2826;transform:translateY(-2px)}
+.btn-b{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:transparent;color:var(--black);
+  font-size:0.95rem;font-weight:500;
+  padding:1rem 2.2rem;border-radius:100px;
+  border:1.5px solid var(--black);
+  text-decoration:none;transition:all 0.18s;
+}
+.btn-b:hover{background:var(--black);color:#fff}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:1.5rem}
+.card-review{
+  background:var(--black);color:#fff;
+  border-radius:24px;padding:2.5rem 2.8rem;
+  position:relative;overflow:hidden;
+}
+.card-review::after{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:220px;height:220px;border-radius:50%;
+  background:var(--yellow);opacity:0.07;
+}
+.review-stars{font-size:1rem;letter-spacing:3px;color:var(--yellow);margin-bottom:1rem}
+.review-text{
+  font-size:1rem;line-height:1.7;
+  color:rgba(255,255,255,0.7);font-style:italic;
+  margin-bottom:1.4rem;font-weight:300;
+}
+.review-meta{display:flex;align-items:center;justify-content:space-between}
+.review-author{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:0.06em}
+.rating-chip{
+  background:var(--yellow);color:var(--black);
+  border-radius:100px;padding:0.35rem 0.9rem;
+  font-size:0.8rem;font-weight:700;display:flex;align-items:center;gap:0.4rem;
+}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{
+  background:#fff;border:1px solid var(--gray-light);
+  border-radius:20px;padding:1.6rem 1.8rem;
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.stat-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-3px)}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;font-weight:700;
+  letter-spacing:-0.04em;margin-bottom:0.3rem;
+}
+.stat-label{font-size:0.78rem;color:var(--gray);font-weight:500;line-height:1.4}
+
+/* DIVIDER */
+.divider-bar{
+  background:var(--black);padding:1.2rem 0;overflow:hidden;
+  white-space:nowrap;
+}
+.divider-track{
+  display:inline-flex;gap:3rem;
+  animation:scroll-x 22s linear infinite;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
+}
+.divider-track .dot{color:var(--yellow)}
+@keyframes scroll-x{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SERVICES */
+.services{padding:7rem 3rem;max-width:1280px;margin:0 auto}
+.section-kicker{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--yellow-dark);
+  margin-bottom:1rem;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  letter-spacing:-0.03em;line-height:1.1;
+  margin-bottom:4rem;max-width:500px;
+}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.service{
+  background:#fff;border:1px solid var(--gray-light);
+  border-radius:20px;padding:2.2rem 1.8rem;
+  transition:all 0.22s;
+}
+.service:hover{border-color:#e0cc70;transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.07)}
+.service-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:700;color:var(--yellow-pale);
+  letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;
+}
+.service-name{font-size:0.98rem;font-weight:600;margin-bottom:0.6rem;color:var(--black)}
+.service-desc{font-size:0.85rem;color:var(--gray);line-height:1.65;font-weight:300}
+
+/* ABOUT */
+.about-section{
+  background:var(--black);color:#fff;
+  padding:7rem 3rem;
+}
+.about-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
+}
+.about-left .section-kicker{color:var(--yellow)}
+.about-left h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  letter-spacing:-0.03em;line-height:1.1;
+  margin-bottom:1.8rem;
+}
+.about-left p{
+  font-size:0.95rem;color:rgba(255,255,255,0.55);
+  line-height:1.8;font-weight:300;margin-bottom:1rem;
+}
+.check-list{list-style:none;margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.check-list li{
+  display:flex;align-items:flex-start;gap:0.8rem;
+  font-size:0.9rem;color:rgba(255,255,255,0.7);font-weight:300;
+}
+.check-dot{
+  width:18px;height:18px;flex-shrink:0;border-radius:50%;
+  background:var(--yellow);display:inline-flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+
+/* CTA CARD */
+.cta-card{
+  background:var(--yellow);border-radius:28px;
+  padding:3rem 2.8rem;display:flex;flex-direction:column;gap:1.5rem;
+}
+.cta-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;letter-spacing:-0.03em;line-height:1.1;
+  color:var(--black);
+}
+.cta-card p{font-size:0.9rem;color:rgba(0,0,0,0.55);line-height:1.65;font-weight:300}
+.cta-phone-btn{
+  display:flex;align-items:center;gap:0.8rem;
+  background:var(--black);color:#fff;
+  font-weight:600;font-size:1.05rem;
+  padding:1.1rem 1.8rem;border-radius:100px;
+  text-decoration:none;transition:transform 0.15s,background 0.18s;
+}
+.cta-phone-btn:hover{background:#2a2826;transform:translateY(-2px)}
+.cta-wa-btn{
+  display:flex;align-items:center;gap:0.8rem;
+  background:#fff;color:var(--black);
+  font-weight:500;font-size:0.92rem;
+  padding:1rem 1.8rem;border-radius:100px;
+  text-decoration:none;transition:all 0.15s;
+  border:1px solid rgba(0,0,0,0.1);
+}
+.cta-wa-btn:hover{background:#f0fef4;transform:translateY(-2px)}
+.wa-dot{width:10px;height:10px;border-radius:50%;background:#25D366;flex-shrink:0}
+.address-row{
+  display:flex;align-items:flex-start;gap:0.6rem;
+  font-size:0.82rem;color:rgba(0,0,0,0.5);line-height:1.5;
+  padding-top:0.5rem;border-top:1px solid rgba(0,0,0,0.12);
+}
+
+/* FOOTER */
+footer{
+  background:var(--black);border-top:1px solid rgba(255,255,255,0.05);
+  padding:2.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+footer p{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;transition:color 0.15s}
+footer a:hover{color:var(--yellow)}
+
+/* FLOAT WA */
+.float-wa{
+  position:fixed;bottom:1.8rem;right:1.8rem;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;text-decoration:none;z-index:300;
+  box-shadow:0 8px 30px rgba(37,211,102,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(37,211,102,0.55)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem;min-height:auto;gap:3rem}
+  .hero-right{order:-1}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .services{padding:5rem 1.5rem}
+  .about-inner{grid-template-columns:1fr;gap:3rem}
+  .about-section{padding:5rem 1.5rem}
+  footer{flex-direction:column;align-items:flex-start;padding:2rem 1.5rem}
+}
+@media(max-width:560px){
+  .services-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  h1{font-size:2.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Táxi <span>do Zeca</span></div>
+  <a href="tel:+5555997027037" class="nav-pill">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.4 2 2 0 013.6 1.22h3a2 2 0 012 1.72c.12 1 .34 1.98.67 2.92a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.13 6.13l.91-.91a2 2 0 012.11-.45c.94.33 1.92.55 2.92.67A2 2 0 0122 16.92z"/></svg>
+    Ligar agora
+  </a>
+</nav>
+
+<!-- HERO -->
+<section>
+<div class="hero">
+  <div>
+    <div class="badge">★ Santo Ângelo e Região</div>
+    <h1>Transporte que você<em>pode confiar.</em></h1>
+    <p class="hero-sub">Corridas na cidade, viagens intermunicipais e traslado para aeroporto. Pontual, seguro e com 5 estrelas no Google.</p>
+    <div class="btns">
+      <a href="tel:+5555997027037" class="btn-a">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.4 2 2 0 013.6 1.22h3a2 2 0 012 1.72c.12 1 .34 1.98.67 2.92a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.13 6.13l.91-.91a2 2 0 012.11-.45c.94.33 1.92.55 2.92.67A2 2 0 0122 16.92z"/></svg>
+        (55) 99702-7037
+      </a>
+      <a href="https://wa.me/5555997027037" target="_blank" class="btn-b">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="card-review">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Motorista pontual e educado. Viajei de Santo Ângelo até Ijuí sem preocupação nenhuma. Super recomendo!"</p>
+      <div class="review-meta">
+        <span class="review-author">CLIENTE VERIFICADO · GOOGLE</span>
+        <span class="rating-chip">⭐ 5,0</span>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--yellow-dark)">5,0</div>
+        <div class="stat-label">Avaliação média<br>no Google</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">11</div>
+        <div class="stat-label">Avaliações<br>verificadas</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DIVIDER TICKER -->
+<div class="divider-bar" aria-hidden="true">
+  <div class="divider-track">
+    <span>Corridas na cidade</span><span class="dot"> ✦ </span>
+    <span>Viagens intermunicipais</span><span class="dot"> ✦ </span>
+    <span>Traslado para aeroporto</span><span class="dot"> ✦ </span>
+    <span>Agendamento antecipado</span><span class="dot"> ✦ </span>
+    <span>Pagamento no cartão</span><span class="dot"> ✦ </span>
+    <span>Atendimento rápido</span><span class="dot"> ✦ </span>
+    <span>Corridas na cidade</span><span class="dot"> ✦ </span>
+    <span>Viagens intermunicipais</span><span class="dot"> ✦ </span>
+    <span>Traslado para aeroporto</span><span class="dot"> ✦ </span>
+    <span>Agendamento antecipado</span><span class="dot"> ✦ </span>
+    <span>Pagamento no cartão</span><span class="dot"> ✦ </span>
+    <span>Atendimento rápido</span><span class="dot"> ✦ </span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-kicker">Nossos serviços</div>
+  <h2 class="section-title">Tudo que você precisa, num só lugar</h2>
+  <div class="services-grid">
+    <div class="service">
+      <div class="service-num">01</div>
+      <div class="service-name">Corridas na cidade</div>
+      <p class="service-desc">Deslocamentos rápidos e seguros por Santo Ângelo e municípios próximos, a qualquer hora.</p>
+    </div>
+    <div class="service">
+      <div class="service-num">02</div>
+      <div class="service-name">Viagens intermunicipais</div>
+      <p class="service-desc">Viaje com conforto para qualquer destino na região com preço combinado e sem surpresas.</p>
+    </div>
+    <div class="service">
+      <div class="service-num">03</div>
+      <div class="service-name">Traslado para aeroporto</div>
+      <p class="service-desc">Pontualidade garantida para você não perder seu voo. Agende com antecedência e viaje tranquilo.</p>
+    </div>
+    <div class="service">
+      <div class="service-num">04</div>
+      <div class="service-name">Agendamento antecipado</div>
+      <p class="service-desc">Programe sua corrida via WhatsApp. Simples, rápido e sem complicação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + CTA -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-kicker">Por que nos escolher</div>
+      <h2>Referência em Santo Ângelo há anos</h2>
+      <p>O Táxi do Zeca é reconhecido pela pontualidade, segurança e atendimento personalizado. Cada corrida é tratada com o cuidado que você merece.</p>
+      <ul class="check-list">
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>5,0 estrelas — nota máxima no Google</li>
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Respostas rápidas via telefone e WhatsApp</li>
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Veículo limpo, climatizado e revisado</li>
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Aceita cartão de crédito e débito</li>
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Atendimento em Santo Ângelo, Ijuí e região</li>
+        <li><span class="check-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Agendamento antecipado disponível</li>
+      </ul>
+    </div>
+
+    <div class="cta-card">
+      <h3>Pronto para te buscar agora</h3>
+      <p>Ligue ou mande mensagem. Respondemos rapidinho e você fica tranquilo para focar no que importa.</p>
+      <a href="tel:+5555997027037" class="cta-phone-btn">
+        <span style="width:24px;height:24px;background:var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.4 2 2 0 013.6 1.22h3a2 2 0 012 1.72c.12 1 .34 1.98.67 2.92a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.13 6.13l.91-.91a2 2 0 012.11-.45c.94.33 1.92.55 2.92.67A2 2 0 0122 16.92z"/></svg>
+        </span>
+        (55) 99702-7037
+      </a>
+      <a href="https://wa.me/5555997027037" target="_blank" class="cta-wa-btn">
+        <span class="wa-dot"></span>
+        Chamar no WhatsApp
+      </a>
+      <div class="address-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        R. Tiradentes, 244 – Dido, Santo Ângelo – RS, 98802-530
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Táxi do Zeca · Santo Ângelo – RS</p>
+  <div style="display:flex;gap:2rem">
+    <a href="tel:+5555997027037">(55) 99702-7037</a>
+    <a href="https://wa.me/5555997027037" target="_blank">WhatsApp</a>
+  </div>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/5555997027037" target="_blank" class="float-wa" title="Chamar no WhatsApp" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
