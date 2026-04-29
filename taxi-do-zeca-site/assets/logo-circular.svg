@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Táxi do Zeca circular">
-  <defs><style>.b{fill:#111}.w{fill:#fff}.y{fill:#FFC107}.s{font-family:Montserrat,Arial,sans-serif;font-weight:900;letter-spacing:-3px}</style></defs>
-  <circle cx="250" cy="250" r="232" class="y"/><circle cx="250" cy="250" r="232" fill="none" stroke="#fff" stroke-width="18"/>
-  <path class="b" d="M118 120c48-42 143-42 203 0 24 17 51 23 83 23v18c-45 0-81-9-116-30-46-28-116-29-154 6-10 9-18 20-24 31H79c8-18 21-34 39-48z"/>
-  <rect x="330" y="135" width="18" height="18" class="b"/><rect x="348" y="153" width="18" height="18" class="b"/><rect x="366" y="135" width="18" height="18" class="b"/><rect x="384" y="153" width="18" height="18" class="b"/>
-  <text x="100" y="260" font-size="88" class="b s">TÁXI</text><text x="194" y="305" font-size="35" class="b s" letter-spacing="0">DO</text><text x="116" y="385" font-size="78" class="w s">ZECA</text>
-  <path class="b" d="M85 322h110v9H85zM304 322h110v9H304z"/>
-  <g transform="translate(136 402)"><rect class="b" x="0" y="0" width="18" height="18"/><rect class="b" x="36" y="0" width="18" height="18"/><rect class="b" x="72" y="0" width="18" height="18"/><rect class="b" x="108" y="0" width="18" height="18"/><rect class="b" x="144" y="0" width="18" height="18"/><rect class="b" x="18" y="18" width="18" height="18"/><rect class="b" x="54" y="18" width="18" height="18"/><rect class="b" x="90" y="18" width="18" height="18"/><rect class="b" x="126" y="18" width="18" height="18"/><rect class="b" x="162" y="18" width="18" height="18"/></g>
-</svg>
